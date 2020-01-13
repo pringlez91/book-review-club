@@ -43,10 +43,10 @@ class Header extends Component {
       render() {
             return(
                 <div>
-                    <Navbar className="bg-warning" expand="md">
+                    <Navbar dark expand="md">
                         <div className="container">
                             <NavbarToggler onClick={this.toggleNav} />
-                            <NavbarBrand className="mr-auto" href="/"><img src='assets/images/logo.png' height="30" width="41" alt='Book Review Club' /></NavbarBrand>
+                            <NavbarBrand className="mr-auto" href="/"><img src='assets/images/logo.png' height="50" width="50" alt='Book Review Club' /></NavbarBrand>
                             <Collapse isOpen={this.state.isNavOpen} navbar>
                                 <Nav navbar>
                                 <NavItem>
@@ -67,10 +67,14 @@ class Header extends Component {
                             </Collapse>
                         </div>
                     </Navbar>
-                    <Jumbotron className="bg-warning text-white">
+                    <Jumbotron >
                         <div className="container">
                             <div className="row row-header">
+                            <img src='assets/images/logo.png'  alt='Book Review Club' />
                                 <div className="col-12 col-sm-6">
+                                <br></br>
+                                <br></br>
+
                                     <h1>The Book Review Club</h1>
                                     <p>Book club for people who want to meet to discuss a book or books that they have read and express their opinions, likes, and dislikes </p>
                                 </div>
