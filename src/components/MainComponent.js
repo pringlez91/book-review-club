@@ -14,11 +14,6 @@ const mapStateToProps = state => {
 }
 
 class Main extends Component {
-  constructor(props) {
-    super(props);
-
-  }
-
 
   render() {
 
@@ -26,6 +21,7 @@ class Main extends Component {
       return(
         <Home
             book={this.props.books.filter((book) => book.featured)}
+            reviews={this.props.reviews}
         />
       );
     }

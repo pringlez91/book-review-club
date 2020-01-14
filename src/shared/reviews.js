@@ -4,40 +4,40 @@ export const REV =
         id: 0,
         bookId: 0,
 
-        comment: " I liked it, I have nothing more to say",
-        author: "Kris",
-        featured: false
+        comment: " good book" ,
+        author: "Eli",
+        featured: true
     },
     {
         id: 1,
         bookId: 0,
 
-        comment: " I liked it, I have nothing more to say",
-        author: "Kris",
-        featured: false
+        comment: " It was painful to see Sartre fall to the sickness of his eyes..." ,
+        author: "Mike",
+        featured: true
     },
     {
         id: 2,
         bookId: 0,
 
         comment: " I liked it, I have nothing more to say",
-        author: "Chelsea",
-        featured: false
+        author: "Chelsea K.",
+        featured: true
     },
     {
         id: 3,
         bookId: 0,
 
-        comment: " I liked it, I have nothing more to say",
-        author: "Chelsea",
-        featured: false
+        comment: "Wow for a short read and even shorter chapters this book packs a punch.",
+        author: "Peter",
+        featured: true
     },
     {
         id: 4,
         bookId: 0,
 
-        comment: " I liked it, I have nothing more to say",
-        author: "Chelsea",
+        comment: " Good recovery from the last book. ",
+        author: "Ann",
         featured: false
     },
     {
@@ -45,7 +45,7 @@ export const REV =
         bookId: 1,
 
         comment: "Just ok, not great.",
-        author: "Chelsea",
+        author: "Mara",
         featured: false
     },
     {
@@ -53,7 +53,7 @@ export const REV =
         bookId: 1,
 
         comment: "Just ok, not great.",
-        author: "Chelsea",
+        author: "Christ",
         featured: false
     },
     {
@@ -61,7 +61,7 @@ export const REV =
         bookId: 1,
 
         comment: "Just ok, not great.",
-        author: "Chelsea",
+        author: "Cris",
         featured: false
     },
     {
@@ -69,7 +69,7 @@ export const REV =
         bookId: 1,
 
         comment: "Just ok, not great.",
-        author: "Chelsea",
+        author: "Jen",
         featured: false
     },
     {
@@ -77,60 +77,60 @@ export const REV =
         bookId: 1,
 
         comment: "Just ok, not great.",
-        author: "Chelsea",
+        author: "Mike",
         featured: false
     },
     {
         id: 10,
         bookId: 2,
 
-        comment: "Just ok, not great.",
-        author: "Chelsea",
-        featured: false
+        comment: "Amazing book",
+        author: "Chelsea M.",
+        featured: true
     },
     {
         id: 11,
         bookId: 2,
 
-        comment: "Just ok, not great.",
-        author: "Molly",
+        comment: "I very much enjoyed the first chapter of the book, but grew tired of the style partway through. ",
+        author: "Mary",
         featured: false
     },
     {
         id: 12,
         bookId: 2,
 
-        comment: "Just ok, not great.",
-        author: "Chelsea",
+        comment: "Comprehensive guide to finding your God-created niche,",
+        author: "Jane",
         featured: false
     },
     {
         id: 13,
         bookId: 2,
 
-        comment: "Just ok, not great.",
-        author: "Molly",
+        comment: "This is one of the best book series that I have ever read. ",
+        author: "Otis",
         featured: false
     },
     {
         id: 14,
         bookId: 2,
 
-        comment: "Just ok, not great.",
-        author: "Molly",
+        comment: "Happiness can be found, even in the darkest of times, if one only remembers to turn on the light.",
+        author: "Quin",
         featured: false
     },
     {
         id: 15,
         bookId: 3,
         comment: "I am so glad I was able to read this collection!",
-        author: "Molly",
-        featured: false
+        author: "Molly P.",
+        featured: true
     },
     {
         id: 16,
         bookId: 3,
-        comment: "I am so glad I was able to read this collection!",
+        comment: "LOVE",
         author: "Molly",
         featured: false
     },
@@ -138,8 +138,8 @@ export const REV =
         id: 17,
         bookId: 3,
 
-        comment: "I am so glad I was able to read this collection!",
-        author: "Molly",
+        comment: "great reference for the expanded universe, I still use it today some times",
+        author: "Khan",
         featured: false
     },
     {
@@ -147,14 +147,14 @@ export const REV =
         bookId: 3,
 
         comment: "I am so glad I was able to read this collection!",
-        author: "Molly",
+        author: "Eli",
         featured: false
     },
     {
         id: 19,
         bookId: 3,
 
-        comment: "I am so glad I was able to read this collection!",
+        comment: "I like the art style, but I'll need to read more to decide whether I'll find the plot interesting or not. Four tentative stars for now. ",
         author: "Molly",
         featured: false
     },
@@ -170,8 +170,8 @@ export const REV =
         id: 21,
         bookId: 4,
 
-        comment: "I am so glad I was able to read this collection!",
-        author: "Molly",
+        comment: "This book was amazing. I loved it. I felt bad that the main character Clea is diagnosed with ADHD.",
+        author: "Denis",
         featured: false
     },
     {
@@ -179,7 +179,7 @@ export const REV =
         bookId: 5,
 
         comment: "I am so glad I was able to read this collection!",
-        author: "Molly",
+        author: "Jane",
         featured: false
     },
 ]
