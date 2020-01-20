@@ -36,6 +36,7 @@ function RenderBookItem({ boo, onClick, onButton, flip, current, reviews }) {
         isFlipped={flip && current === book.id}
         flipDirection="horizontal"
       >
+      <div key={book.id} className="col-12 col-md m-1">
         <Card style={{ width: "25rem", minHeight: "50rem" }}>
           <CardImg
             style={{ width: "25rem", height: "30rem" }}
@@ -62,6 +63,8 @@ function RenderBookItem({ boo, onClick, onButton, flip, current, reviews }) {
             </div>
           </CardBody>
         </Card>
+        </div>
+        <div key={book.id} className="col-12 col-md m-1">
         <Card style={{ width: "25rem", minHeight: "40rem" }}>
           <CardImg
             style={{ width: "25rem", height: "30rem" }}
@@ -78,6 +81,7 @@ function RenderBookItem({ boo, onClick, onButton, flip, current, reviews }) {
             </div>
           </CardBody>
         </Card>
+        </div>
       </ReactCardFlip>
     );
   });
