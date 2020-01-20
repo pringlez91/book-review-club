@@ -3,6 +3,7 @@ import Book from './BookComponent';
 import Header from './HeaderComponent';
 import Footer from './FooterComponent';
 import Home from './HomeComponent';
+import Join from './JoinComponent';
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux'
 
@@ -31,7 +32,9 @@ class Main extends Component {
     <Header />
     <Switch>
            <Route path='/home' component={HomePage} />
-            <Route exact path='/book' component={() => <Book books={this.props.books} />} />
+            <Route exact path='/book' component={() => <Book books={this.props.books} reviews={this.props.reviews} />} />
+            <Route exact path='/join' component={() => <Join books={this.props.books} reviews={this.props.reviews}/>} />
+
            <Redirect to="/home" />
        </Switch>
 
