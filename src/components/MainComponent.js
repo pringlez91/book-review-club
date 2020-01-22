@@ -41,7 +41,7 @@ class Main extends Component {
             exact
             path="/join"
             component={() => (
-              <Join books={this.props.books} reviews={this.props.reviews} />
+              <Join  />
             )}
           />
 

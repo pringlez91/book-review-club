@@ -1,18 +1,10 @@
 import React, { Component } from "react";
-import {
-  Card,
-  CardImg,
-  CardImgOverlay,
-  CardTitle,
-  Breadcrumb,
-  BreadcrumbItem,
-  CardText,
-  CardBody,
-  Button,
-  CardSubtitle
-} from "reactstrap";
+import { Card, CardImg, CardText, CardBody,
+    CardTitle, Breadcrumb, BreadcrumbItem, Button, Modal, ModalHeader, ModalBody,
+    Form, FormGroup, Input, Label, Row, Col,CardSubtitle } from 'reactstrap';
 import { Link } from "react-router-dom";
 import ReactCardFlip from "react-card-flip";
+import { Control, LocalForm, Errors} from 'react-redux-form';
 
 function RenderRe({ bid, review }) {
   const itm = review.map(c => {
@@ -29,7 +21,7 @@ function RenderRe({ bid, review }) {
   return <div>{itm}</div>;
 }
 
-function RenderBookItem({ boo, onClick, onButton, flip, current, reviews }) {
+function RenderBookItem({ boo, onClick, onButton, flip, current, reviews,onModale }) {
   const bo = boo.map(book => {
     return (
       <ReactCardFlip
@@ -76,11 +68,13 @@ function RenderBookItem({ boo, onClick, onButton, flip, current, reviews }) {
             <RenderRe bid={book.id} review={reviews} />
             <div className="text-center">
               <Button onClick={onButton(book.id)}>
-                <span className="fa fa-undo fa-lg"></span>Click for Reviews
+                <span className="fa fa-undo fa-lg"></span>Click for book details
               </Button>
+               <Button onClick={onModale} ><i className="fa fa-pencil fa-lg"></i> Add Comment</Button>
             </div>
           </CardBody>
         </Card>
+
         </div>
       </ReactCardFlip>
     );
@@ -89,15 +83,27 @@ function RenderBookItem({ boo, onClick, onButton, flip, current, reviews }) {
   return <div className="row">{bo}</div>;
 }
 
+const required = (val) => val && val.length;
+const maxLength = (len) => (val) => !(val) || (val.length <= len);
+const minLength = (len) => (val) => val && (val.length >= len);
+
 class Book extends Component {
   constructor() {
     super();
     this.state = {
       isFlipped: false,
-      current: false
+      current: false,
+      isModalOpen: false
     };
     this.handleClick = this.handleClick.bind(this);
+    this.toggleModal = this.toggleModal.bind(this);
   }
+
+  toggleModal() {
+  this.setState({
+    isModalOpen: !this.state.isModalOpen
+  });
+}
 
   handleClick(text) {
     return event => {
@@ -109,6 +115,13 @@ class Book extends Component {
       event.preventDefault();
     };
   }
+  handleSubmit(values) {
+  this.toggleModal()
+  console.log('Current State is: ' + JSON.stringify(values));
+  alert('Current State is: ' + JSON.stringify(values));
+
+}
+
 
   render() {
     return (
@@ -131,8 +144,62 @@ class Book extends Component {
           boo={this.props.books}
           onClick={this.props.onClick}
           onButton={this.handleClick}
+          onModale={this.toggleModal}
         />
+        <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
+      <ModalHeader toggle={this.toggleModal}>Submitt Review</ModalHeader>
+      <ModalBody>
+          <div className="col-12 col-md-12">
+          <LocalForm onSubmit={(values) => this.handleSubmit(values)}>
+          <Row className="form-group">
+          <Label htmlFor="rating" >Rating</Label>
+                  <Control.select model=".rating" name="rating"
+                      className="form-control">
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                  </Control.select>
+          </Row>
+          <Row className="form-group">
+                 <Label htmlFor="author" >Name</Label>
+                     <Control.text model=".author" id="author" name="author"
+                         className="form-control"
+                         validators={{
+                             required, minLength: minLength(3), maxLength: maxLength(15)
+                         }}
+                          />
+                     <Errors
+                         className="text-danger"
+                         model=".author"
+                         show="touched"
+                         messages={{
+                             required: 'Required',
+                             minLength: 'Must be greater than 2 characters',
+                             maxLength: 'Must be 15 characters or less'
+                         }}
+                      />
+             </Row>
+             <Row className="form-group">
+                 <Label htmlFor="comment" >Comment</Label>
+                     <Control.textarea model=".comment" id="comment" name="comment"
+                         rows="12"
+                         className="form-control" />
+             </Row>
+             <Row className="form-group">
+                     <Button type="submit" color="primary">
+                     Submit
+                     </Button>
+             </Row>
+          </LocalForm>
+          </div>
+      </ModalBody>
+  </Modal>
+
       </div>
+
+
     );
   }
 }
