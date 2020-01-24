@@ -6,6 +6,7 @@ import Home from "./HomeComponent";
 import Join from "./JoinComponent";
 import { Switch, Route, Redirect, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
+import { addReview } from "../redux/ActionCreators";
 
 const mapStateToProps = state => {
   return {
@@ -13,6 +14,11 @@ const mapStateToProps = state => {
     reviews: state.reviews
   };
 };
+
+const mapDispatchToProps = dispatch => ({
+  addReview: (bookId, rating, author, review) =>
+    dispatch(addReview(bookId, rating, author, review))
+});
 
 class Main extends Component {
   render() {
@@ -34,16 +40,14 @@ class Main extends Component {
             exact
             path="/book"
             component={() => (
-              <Book books={this.props.books} reviews={this.props.reviews} />
+              <Book
+                books={this.props.books}
+                reviews={this.props.reviews}
+                addReview={this.props.addReview}
+              />
             )}
           />
-          <Route
-            exact
-            path="/join"
-            component={() => (
-              <Join  />
-            )}
-          />
+          <Route exact path="/join" component={() => <Join />} />
 
           <Redirect to="/home" />
         </Switch>
@@ -54,4 +58,9 @@ class Main extends Component {
   }
 }
 
-export default withRouter(connect(mapStateToProps)(Main));
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(Main)
+);
